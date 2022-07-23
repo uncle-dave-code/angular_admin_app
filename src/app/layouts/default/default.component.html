@@ -1,0 +1,60 @@
+<!-- Wrapper -->
+<div class="d-flex flex-column flex-auto w-full min-w-0">
+
+  <p-sidebar [(visible)]="sideBarVisibility" styleClass="w-full sm:w-25rem">
+
+    <div class="w-full pt-2 text-right">
+      <p-button pRipple (onClick)="changeSideBar()" type="button" icon="pi pi-bars"
+        styleClass="p-button-xsm p-button-rounded"></p-button>
+    </div>
+
+    <div class="pt-5 text-center d-flex flex-column">
+      <p-avatar [image]="'https://www.gravatar.com/avatar/'+getGravatarHash()" styleClass="mb-3 w-5rem h-5rem"
+        size="xlarge" shape="circle"></p-avatar>
+      <h5>{{login?.name}} {{login?.lastname}}</h5>
+      <a class="font-medium no-underline ml-2 text-primary cursor-pointer"
+        href="mailto:{{login?.email}}">{{login?.email}}</a>
+    </div>
+
+    <p-menu styleClass="main-menu" [model]="items" (click)="changeSideBar()"></p-menu>
+
+  </p-sidebar>
+
+  <p-toolbar styleClass="udc-toolbar">
+    <div class="p-toolbar-group-left">
+      <p-button pRipple (onClick)="changeSideBar()" type="button" icon="pi pi-bars"
+        styleClass="p-button-xsm p-button-rounded"></p-button>
+    </div>
+
+    <div class="p-toolbar-group-right">
+      <p-dropdown styleClass="mr-5" [options]="languages" [(ngModel)]="selectedLanguage" (onChange)="changeSiteLanguage($event)"
+        optionLabel="name">
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value" *ngIf="selectedLanguage">
+            <img width="20px" [src]="'assets/images/icons/'+selectedLanguage.resource" class="mr-2" />
+            {{selectedLanguage.name}}
+          </div>
+        </ng-template>
+        <ng-template let-country pTemplate="item">
+          <div class="country-item">
+            <div class="country-item country-item-value" *ngIf="selectedLanguage">
+              <img width="20px" [src]="'assets/images/icons/'+country.resource" class="mr-2" />
+              {{country.name}}
+            </div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+      <p-button pRipple type="button" icon="pi pi-cog" styleClass="p-button-xsm p-button-rounded ml-1"></p-button>
+      <p-button pRipple type="button" icon="pi pi-user" styleClass="p-button-xsm p-button-rounded ml-1"></p-button>
+      <p-button (onClick)="doLogout()" pRipple type="button" icon="pi pi-times"
+        styleClass="p-button-xsm p-button-rounded p-button-danger ml-3"></p-button>
+
+    </div>
+  </p-toolbar>
+
+  <!-- Content -->
+  <div class="d-flex flex-column flex-auto">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

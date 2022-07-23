@@ -1,0 +1,41 @@
+<div class="flex flex-column flex-auto align-items-center sm:justify-content-center min-w-0 md:p-4 pt-3">
+
+  <div class="sm:w-auto sm:px-8 sm:py-5 sm:border-round sm:shadow-7">
+    <form [formGroup]="signInForm">
+      <div class="w-100 mw-100 small:w-80 small:mx-0">
+        <div class="text-center">
+          <img src="assets/images/logo.png" alt="Image" height="100" class="mb-3" />
+          <div class="font-semibold text-4xl text-700">{{'sign-in.log-in' | transloco}}</div>
+        </div>
+        <div class="mb-6 font-medium align-items-baseline flex mt-1">
+
+          <span class="">{{'sign-in.dont-have-account' | transloco}} </span>
+          <a class="font-medium no-underline ml-2 text-primary cursor-pointer"
+            [routerLink]="['/register']">{{'sign-in.sign-up' | transloco}}</a>
+        </div>
+        <div class="mb-3">
+          <label for="txtEmail" class="form-label">{{'sign-in.email' | transloco}}</label>
+          <input type="email" pInputText class="p-inputtext-sm form-control" id="txtEmail" [formControlName]="'email'">
+        </div>
+        <div class="mb-3">
+          <label for="txtPassword" class="form-label">{{'sign-in.password' | transloco}}</label>
+          <input type="password" pPassword class="p-inputtext-sm form-control" id="txtPassword"
+            [formControlName]="'password'">
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <div class="d-flex align-items-center">
+          <p-checkbox label="{{'sign-in.remember-me' | transloco}}" inputId="chkRememberMe" [binary]="true"
+            [formControlName]="'rememberMe'">
+          </p-checkbox>
+        </div>
+        <a class="font-medium no-underline ml-2 text-primary text-right cursor-pointer"
+          [routerLink]="['/recover']">{{'sign-in.forgot-password' | transloco}}</a>
+      </div>
+      <button (click)="doLogin()" pButton class="w-full" label="{{'sign-in.sign-in' | transloco}}"></button>
+
+      <p-messages></p-messages>
+
+    </form>
+  </div>
+</div>

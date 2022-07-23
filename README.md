@@ -1,27 +1,37 @@
-# AdminUI
+npm install primeng --save  
+npm install primeicons --save
+npm install primeflex
+npm install @angular/animations --save
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
 
-## Development server
+npm install ngx-webstorage
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+ng add @ngneat/transloco
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ng generate module layouts
 
-## Build
+ng generate component layouts/default
+ng generate component layouts/empty
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+ng generate module modules/dashboards
+ng generate module modules/auth
 
-## Running unit tests
+ng generate component modules/auth/sign-in
+ng generate component modules/auth/sign-up
+ng generate component modules/auth/recover-password
+ng generate component modules/dashboards/analytics  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ng generate service services/auth  
 
-## Running end-to-end tests
+ng generate class app.routing 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+https://8gwifi.org/jwsgen.jsp
 
-## Further help
+npm install crypto-js --save
+npm install @types/crypto-js --save
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+

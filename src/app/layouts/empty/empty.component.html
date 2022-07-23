@@ -1,0 +1,27 @@
+<!-- Wrapper -->
+<div class="flex flex-auto flex-column w-full">
+  <div class="w-full text-right pr-2 pt-2">
+    <p-dropdown [options]="languages" [(ngModel)]="selectedLanguage" (onChange)="changeSiteLanguage($event)"
+      optionLabel="name">
+      <ng-template pTemplate="selectedItem">
+        <div class="country-item country-item-value" *ngIf="selectedLanguage">
+          <img width="20px" [src]="'assets/images/icons/'+selectedLanguage.resource" class="mr-2" />
+          {{selectedLanguage.name}}
+        </div>
+      </ng-template>
+      <ng-template let-country pTemplate="item">
+        <div class="country-item">
+          <div class="country-item country-item-value" *ngIf="selectedLanguage">
+            <img width="20px" [src]="'assets/images/icons/'+country.resource" class="mr-2" />
+            {{country.name}}
+          </div>
+        </div>
+      </ng-template>
+    </p-dropdown>
+  </div>
+  <!-- Content -->
+  <div class="overflow-auto flex flex-auto flex-column">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
